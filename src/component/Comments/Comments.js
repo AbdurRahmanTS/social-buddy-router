@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import CommentBody from '../CommentBody/CommentBody';
 
+
 const Comments = ({postsId}) => {
-    const [comments, setComments] = useState([])
+    const [comments, setComments] = useState([]);
+    
 
     useEffect( () => {
         const url = `https://jsonplaceholder.typicode.com/comments?postId=${postsId}`;
         fetch( url)
         .then(res => res.json())
         .then(data => setComments(data))
+        .catch(err => console.log(err))
     }, [postsId])
     return (
         <>

@@ -28,6 +28,7 @@ const PostDetail = () => {
         fetch(url)
             .then(res => res.json())
             .then(data => setPost(data))
+            .catch(err => console.log(err))
     }, [])
 
     return (
